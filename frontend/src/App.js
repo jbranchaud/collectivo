@@ -46,15 +46,13 @@ class App extends Component {
   handleSignIn(values) {
     const request = {
       method: "POST",
-      // uncommenting the below lines will set the content type but break
-      // the fetch :(
-      // headers: {
-      //   "Content-Type": "application/json"
-      // },
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify(values.signin)
     };
 
-    fetch("http://localhost:4444/api/session", request)
+    fetch("/api/session", request)
       .then(function(response) {
         return response.json();
       })
